@@ -1,0 +1,32 @@
+<ion-view view-title="Início">
+    <ion-content>
+        <div class="homeSpace"></div>
+        <img class="logo center" src="img/logo.png">
+        <div class="homeSpace"></div>
+        <div class="row">
+                <div class="col"> 
+                    <label class="item item-input item-stable">
+                         <input type="text" ng-model="search" placeholder="Procurar">
+                    </label>
+                </div>
+            </div>
+        <form name="predioNumeroForm">
+            <div class="row">
+                <div class="col"> 
+                    <label class="item item-input item-select item-stable">
+                        <select ng-model="predio" ng-options="predio.descricao for predio in predios | filter:search" ng-required="true">
+                            <option value="">Selecione uma sala</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col">
+                <button class="button button-dark button-block icon-right ion-map" ng-click="homeEncontraPredio(predio.numero)
+" ng-disabled="predioNumeroForm.$invalid">Encontrar no mapa</button>
+            </div>
+        </div>     
+    </ion-content>
+    
+</ion-view>
